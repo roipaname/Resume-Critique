@@ -68,5 +68,11 @@ def get_resume_feedback():
         except Exception as e:
             logging.error(f"Error during OpenAI API call: {e}")
             st.error("An error occurred while processing your request. Please try again later.")
-            
 
+
+if analyze:
+    try:
+        get_resume_feedback()
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
+        st.error("An unexpected error occurred. Please try again later.")
